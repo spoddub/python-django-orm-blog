@@ -18,7 +18,8 @@ class User(TimestampedModel):
     first_name = models.CharField(max_length=100, null=True)
     last_name = models.CharField(max_length=100, null=True)
     nickname = models.CharField(max_length=100, null=True)
-
+    password = models.CharField(max_length=100)
+    USERNAME_FIELD = 'email'
 
 class Tag(TimestampedModel):
     """A tag for the group of posts."""
