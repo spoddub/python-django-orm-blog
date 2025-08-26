@@ -26,3 +26,7 @@ shell:
 .PHONY: lint
 lint:
 	uv run ruff check python_django_orm_blog
+
+migration:
+	uv run python manage.py makemigrations
+	uv run python manage.py migrate
