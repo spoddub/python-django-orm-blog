@@ -19,7 +19,8 @@ class User(TimestampedModel):
     last_name = models.CharField(max_length=100, null=True)
     nickname = models.CharField(max_length=100, null=True)
     password = models.CharField(max_length=100)
-    USERNAME_FIELD = 'email'
+    USERNAME_FIELD = "email"
+
 
 class Tag(TimestampedModel):
     """A tag for the group of posts."""
@@ -42,7 +43,9 @@ class PostComment(TimestampedModel):
     body = models.TextField()
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
     response_to = models.ForeignKey(
-        'PostComment', on_delete=models.SET_NULL, null=True,
+        "PostComment",
+        on_delete=models.SET_NULL,
+        null=True,
     )
     creator = models.ForeignKey(User, on_delete=models.CASCADE)
 
@@ -54,4 +57,4 @@ class PostLike(TimestampedModel):
     creator = models.ForeignKey(User, on_delete=models.CASCADE)
 
     class Meta:
-        unique_together = ['post', 'creator']
+        unique_together = ["post", "creator"]

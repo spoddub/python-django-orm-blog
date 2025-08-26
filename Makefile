@@ -25,7 +25,8 @@ shell:
 
 .PHONY: lint
 lint:
-	uv run ruff check python_django_orm_blog
+	uv run ruff check --fix
+	uv run ruff format
 
 migration:
 	uv run python manage.py makemigrations
